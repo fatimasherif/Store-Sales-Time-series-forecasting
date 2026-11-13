@@ -1,0 +1,25 @@
+# Environment
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+
+# Kaggle credentials
+kaggle.json
+access_token
+
+# Data stays out of git (raw files are Kaggle's, processed files are large)
+data/raw/*
+data/processed/**
+!data/raw/.gitkeep
+!data/processed/
+!data/processed/.gitkeep
+
+# Submission files are regenerated from the notebooks
+submissions/*
+!submissions/.gitkeep
+
+# Editors / OS
+.vscode/
+.DS_Store
