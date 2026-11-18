@@ -113,6 +113,11 @@ def make_folds(n_folds: int = N_FOLDS, horizon: int = HORIZON,
 
 FOLDS = make_folds()
 
+# Two more 16-day windows right before fold 1, used only to choose settings
+# (lookbacks, hyperparameters). Choosing on the backtest folds themselves and
+# reporting the same folds' score would be optimistic.
+TUNING_FOLDS = make_folds(n_folds=2, last_date=FOLDS[0].train_end)
+
 
 def folds_table(folds: list[Fold] = FOLDS) -> pd.DataFrame:
     """Readable summary of the folds, with weekdays."""

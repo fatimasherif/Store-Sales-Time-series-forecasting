@@ -1,0 +1,14 @@
+model,mean_rmsle,std_rmsle,fold_1,fold_2,fold_3,fold_4,params,notes,logged_at
+ma14_x_dow8w,0.44032,0.05633,0.4116,0.40545,0.41988,0.52435,level 14d x weekday shape 8w,baseline,2026-11-19 01:11
+ma14_x_dow8w+zr14,0.44034,0.05632,0.41148,0.40565,0.41985,0.52437,level 14d x weekday shape 8w; zero if no sales in 14d,lookback chosen on tuning folds,2026-11-19 01:11
+dow_8w+zr14,0.44512,0.05676,0.4323,0.40318,0.41661,0.52836,weekday log-mean 8w; zero if no sales in 14d,lookback from tuning folds,2026-11-19 01:01
+dow_8w,0.44784,0.05565,0.44011,0.40592,0.41679,0.52852,weekday log-mean 8w,baseline,2026-11-19 01:11
+dow_4w+zr14,0.45349,0.05758,0.4277,0.41766,0.42907,0.53952,weekday log-mean 4w; zero if no sales in 14d,lookback from tuning folds,2026-11-19 01:01
+dow_4w,0.45351,0.05765,0.42799,0.41738,0.42905,0.53962,weekday log-mean 4w,baseline,2026-11-19 01:10
+ma_28,0.4722,0.04394,0.45192,0.44444,0.45465,0.5378,log-mean 28d,baseline,2026-11-19 01:10
+ma_14,0.47349,0.04189,0.4529,0.44812,0.45684,0.5361,log-mean 14d,baseline,2026-11-19 01:10
+ma_7,0.47828,0.03593,0.45945,0.4567,0.46503,0.53192,log-mean 7d,baseline,2026-11-19 01:10
+ma_28_raw,0.48171,0.0279,0.48013,0.4578,0.46766,0.52125,arithmetic mean 28d,baseline,2026-11-19 01:10
+seasonal_naive,0.54412,0.04839,0.52275,0.51661,0.52051,0.6166,last observed same weekday,baseline,2026-11-19 01:10
+naive_last,0.60798,0.03303,0.58609,0.60129,0.58808,0.65648,last observed day,baseline,2026-11-19 01:10
+zero,4.40933,0.02066,4.37834,4.42019,4.41929,4.4195,,baseline,2026-11-19 01:10
