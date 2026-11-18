@@ -8,7 +8,7 @@ Backtest: 4 consecutive 16-day windows ending 2017-08-15, expanding training win
 
 | Model | Phase | Backtest RMSLE | Fold 4 | Kaggle public score |
 |---|---|---|---|---|
-| Recent level × weekday shape (`ma14_x_dow8w`) | 3 | **0.4403 ± 0.0563** | 0.5244 | *pending* |
+| Recent level × weekday shape (`ma14_x_dow8w`) | 3 | **0.4403 ± 0.0563** | 0.5244 | 0.41456 |
 | Weekday log-mean, 8 weeks (`dow_8w`) | 3 | 0.4478 ± 0.0557 | 0.5285 | |
 | Log-mean, 28 days (`ma_28`) | 3 | 0.4722 ± 0.0439 | 0.5378 | |
 | Arithmetic mean, 28 days (`ma_28_raw`) | 3 | 0.4817 ± 0.0279 | 0.5213 | |
@@ -88,3 +88,4 @@ Then run the notebooks in order with the `Python 3.12 (store-sales)` kernel. Not
 - **Averages on the log scale.** Under squared log error the optimal constant is expm1(mean(log1p y)); the 28-day log-mean beats the arithmetic mean on 3 of 4 folds (0.472 vs 0.482 overall). Averaging 8 same weekdays beats one (0.448 vs 0.544).
 - **Settings are chosen on tuning folds** (two 16-day windows before fold 1), never on the backtest folds, and the optimism is measured. Zero-rule lookback: optimism 0.00004, and the rule adds nothing to log-mean baselines (a log-mean of zeros is already 0). To revisit for LightGBM.
 - **Fold 4 is ~0.10 worse for every model, and SCHOOL AND OFFICE SUPPLIES (0.03% of sales) causes 17% of the error.** Hypothesis: the August back-to-school surge, invisible to recent-weeks methods, and the test period (Aug 16–31) sits in it. Checked at the start of Phase 4; points to per-family yearly memory (lag_364).
+- **First Kaggle score: 0.41456** (backtest 0.4403). The test window behaves like folds 1–3, not fold 4. Consistent with fold 4 being hurt by a level change that starts after its cutoff (Jul 30) but is already in the history at the test cutoff (Aug 15); checked in Phase 4.
